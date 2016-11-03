@@ -94,7 +94,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 116
   m_CollisionDetection: 2
 --- !u!65 &65000010432936790
 BoxCollider:
@@ -137,22 +137,22 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Time: 2
   m_StartWidth: 1
   m_EndWidth: 1
   m_Colors:
     m_Color[0]:
       serializedVersion: 2
-      rgba: 4294967295
+      rgba: 4278255615
     m_Color[1]:
       serializedVersion: 2
-      rgba: 4294967295
+      rgba: 4278243071
     m_Color[2]:
       serializedVersion: 2
-      rgba: 4294967295
+      rgba: 4278226687
     m_Color[3]:
       serializedVersion: 2
-      rgba: 4294967295
+      rgba: 4278202367
     m_Color[4]:
       serializedVersion: 2
       rgba: 16777215
@@ -169,3 +169,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b00358bd2a35f1d40a29867dafef7542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  forceScale: 10
