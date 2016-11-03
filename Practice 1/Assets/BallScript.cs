@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BallScript : MonoBehaviour {
 
-	public float forceScale = 100.0f;
+	public float forceScale = 10.0f;
 
 	private Rigidbody ball;
 

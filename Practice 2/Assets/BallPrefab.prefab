@@ -20,14 +20,14 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011197397652}
   - 33: {fileID: 33000010854418540}
-  - 65: {fileID: 65000010432936790}
   - 23: {fileID: 23000012422963202}
   - 114: {fileID: 114000010735342540}
   - 54: {fileID: 54000013538660890}
   - 96: {fileID: 96000013924987302}
+  - 135: {fileID: 135000011627414998}
   m_Layer: 0
   m_Name: BallPrefab
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,7 +80,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013638847800}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &54000013538660890
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -90,24 +90,12 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 2
---- !u!65 &65000010432936790
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013638847800}
-  m_Material: {fileID: 13400000, guid: 6e1a8168bc9048b4588b1556979df9a6, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!96 &96000013924987302
 TrailRenderer:
   m_ObjectHideFlags: 1
@@ -139,7 +127,7 @@ TrailRenderer:
   m_SortingOrder: 0
   m_Time: 2
   m_StartWidth: 1
-  m_EndWidth: 1
+  m_EndWidth: 0.1
   m_Colors:
     m_Color[0]:
       serializedVersion: 2
@@ -156,7 +144,7 @@ TrailRenderer:
     m_Color[4]:
       serializedVersion: 2
       rgba: 16777215
-  m_MinVertexDistance: 0.1
+  m_MinVertexDistance: 0.5
   m_Autodestruct: 0
 --- !u!114 &114000010735342540
 MonoBehaviour:
@@ -169,4 +157,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b00358bd2a35f1d40a29867dafef7542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceScale: 10
+  forceScale: 500
+--- !u!135 &135000011627414998
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013638847800}
+  m_Material: {fileID: 13400000, guid: 6e1a8168bc9048b4588b1556979df9a6, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
