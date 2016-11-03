@@ -10,11 +10,11 @@ public class BallScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		float randFloat = Random.value * 25.0f;
+		float randFloat = Random.value * 25.0f; //get random value of range [0, 25] and add it to the InitialAngle
 		
 		ball = GetComponent<Rigidbody> ();
 
-		Vector3 force = Quaternion.Euler(0.0f, InitialAngle + randFloat, 0.0f) * Vector3.back *  forceScale;
+		Vector3 force = Quaternion.Euler(0.0f, InitialAngle + randFloat, 0.0f) * Vector3.forward *  forceScale;
 
 		ball.AddForce (force);
 	}

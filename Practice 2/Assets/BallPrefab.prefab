@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceScale: 500
+  InitialAngle: 20
 --- !u!135 &135000011627414998
 SphereCollider:
   m_ObjectHideFlags: 1
