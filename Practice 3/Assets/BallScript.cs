@@ -11,12 +11,18 @@ public class BallScript : MonoBehaviour {
 
 	private AudioSource aSource;
 	private Rigidbody ball;
+	private float randFloat;
 
 	// Use this for initialization
 	void Start () {
-		aSource = GetComponent<AudioSource> ();
+		randFloat = Random.value * 140.0f; //get random value of range [0, 140] and add it to the InitialAngle
 
-		float randFloat = Random.value * 25.0f; //get random value of range [0, 25] and add it to the InitialAngle
+		if (!GameObject.Find ("InnerField").GetComponent<GameController> ().firstPlayerWon) {
+			InitialAngle = -20.0f;
+			randFloat = -1.0f * randFloat;
+		}
+
+		aSource = GetComponent<AudioSource> ();
 		
 		ball = GetComponent<Rigidbody> ();
 

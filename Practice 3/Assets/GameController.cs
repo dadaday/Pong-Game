@@ -7,6 +7,8 @@ public class GameController : MonoBehaviour {
 	public Text firstPlayerScore;
 	public Text secondPlayerScore;
 
+	public bool firstPlayerWon;
+
 	private AudioSource aSource;
 
 	private int firstPlayerScoreCounter;
@@ -14,6 +16,7 @@ public class GameController : MonoBehaviour {
 
 	void Start() {
 		aSource = GetComponent<AudioSource> ();
+		firstPlayerWon = false;
 	}
 
 	void OnTriggerExit(Collider other) {
@@ -24,9 +27,11 @@ public class GameController : MonoBehaviour {
 			if (gameObj.transform.position.z < transform.position.z) {
 				++firstPlayerScoreCounter;
 				firstPlayerScore.text = firstPlayerScoreCounter.ToString ();
+				firstPlayerWon = true;
 			} else {
 				++secondPlayerScoreCounter;
-				secondPlayerScore.text = secondPlayerScoreCounter.ToString ();							
+				secondPlayerScore.text = secondPlayerScoreCounter.ToString ();	
+				firstPlayerWon = false;
 			}
 
 			aSource.Play ();
