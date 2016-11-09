@@ -1240,7 +1240,7 @@ Prefab:
     - target: {fileID: 114000013892203510, guid: 641da8b7abd28d14293ef55552c513e9,
         type: 2}
       propertyPath: GameTimeInSec
-      value: 15
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 114000013892203510, guid: 641da8b7abd28d14293ef55552c513e9,
         type: 2}
@@ -1251,6 +1251,11 @@ Prefab:
         type: 2}
       propertyPath: MessageWaitTime
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013892203510, guid: 641da8b7abd28d14293ef55552c513e9,
+        type: 2}
+      propertyPath: firstPlayerWon
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 641da8b7abd28d14293ef55552c513e9, type: 2}

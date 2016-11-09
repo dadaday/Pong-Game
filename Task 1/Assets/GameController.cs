@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
 	private int secondPlayerScoreCounter;
 
 	private float counter;
+	private const int MAXSCORE = 1;
 
 	void Start ()
 	{
@@ -33,7 +34,7 @@ public class GameController : MonoBehaviour
 	}
 
 	private IEnumerator TimeLimit(float GameTime) {
-		counter = GameTimeInSec;
+		counter = GameTime;
 		while (counter-- > 0) {
 			yield return new WaitForSecondsRealtime (1.0f);
 			TimeLimitText.text = counter.ToString();
@@ -78,6 +79,8 @@ public class GameController : MonoBehaviour
 
 		firstPlayerScoreCounter = 0;
 		secondPlayerScoreCounter = 0;
+
+		counter = GameTimeInSec;
 	}
 
 	void OnTriggerExit (Collider other)
@@ -87,15 +90,13 @@ public class GameController : MonoBehaviour
 			GameObject ball = other.gameObject;
 
 			if (ball.transform.position.z < transform.position.z) {
-				if (++firstPlayerScoreCounter > 1) {
+				if (++firstPlayerScoreCounter > MAXSCORE) {
 					CongratulatePlayer (1);
-					this.Start ();
 				}
 				firstPlayerWon = true;
 			} else {
-				if (++secondPlayerScoreCounter > 1) {
+				if (++secondPlayerScoreCounter > MAXSCORE) {
 					CongratulatePlayer (2);
-					this.Start ();
 				}
 				firstPlayerWon = false;
 			}
