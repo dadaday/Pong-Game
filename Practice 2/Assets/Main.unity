@@ -340,30 +340,9 @@ Prefab:
       propertyPath: m_Name
       value: Field
       objectReference: {fileID: 0}
-    - target: {fileID: 4000014231987036, guid: a8c9225113e991a43ac3711e31e4e501, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000014231987036, guid: a8c9225113e991a43ac3711e31e4e501, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000014231987036, guid: a8c9225113e991a43ac3711e31e4e501, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: ballTemplate
-      value: 
-      objectReference: {fileID: 1104214170}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8c9225113e991a43ac3711e31e4e501, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1104214170 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000013638847800, guid: 9a199ed85002a6048b4f219ea1191407,
-    type: 2}
-  m_PrefabInternal: {fileID: 1528271178}
 --- !u!1 &1120252948
 GameObject:
   m_ObjectHideFlags: 0

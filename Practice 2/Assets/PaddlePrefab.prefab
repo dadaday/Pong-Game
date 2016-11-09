@@ -119,4 +119,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceScale: 400
-  ForceToBallScale: 200
+  ForceToBallScale: 400

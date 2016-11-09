@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b00358bd2a35f1d40a29867dafef7542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceScale: 500
+  forceScale: 700
   InitialAngle: 20
 --- !u!135 &135000011627414998
 SphereCollider:

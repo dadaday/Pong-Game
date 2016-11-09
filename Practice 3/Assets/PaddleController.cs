@@ -4,7 +4,7 @@ using System.Collections;
 public class PaddleController : MonoBehaviour {
 
 	public float forceScale = 400.0f;
-	public float ForceToBallScale = 300.0f;
+	public float ForceToBallScale = 400.0f;
 
 	private Rigidbody paddle;
 
@@ -28,8 +28,15 @@ public class PaddleController : MonoBehaviour {
 		GameObject gamObj = other.gameObject;
 
 		if (gamObj.CompareTag ("Ball")) {
+			Vector3 force;
 			float shift = gamObj.transform.position.x - transform.position.x;
-			Vector3 force= new Vector3 (shift, 0.0f, 0.0f) * ForceToBallScale;
+
+//			if (shift < transform.localScale.x / 4 && shift > -1 * transform.localScale.x / 4) {
+//				Debug.Log ("here");
+//				force = new Vector3 (0.0f, 0.0f, shift) * ForceToBallScale;
+//			} else {
+				force = new Vector3 (shift, 0.0f, 0.0f) * ForceToBallScale;
+//			}
 
 			gamObj.GetComponent<Rigidbody> ().AddForce (force);
 		}
