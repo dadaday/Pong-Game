@@ -10,7 +10,7 @@ public class BallScript : MonoBehaviour {
 	public AudioClip PaddleSound;
 
 	private AudioSource aSource;
-	private Rigidbody ball;
+	public Rigidbody ball;
 
 	// Use this for initialization
 	void Start () {

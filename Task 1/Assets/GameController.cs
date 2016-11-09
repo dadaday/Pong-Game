@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class GameController : MonoBehaviour
 {
@@ -7,8 +8,11 @@ public class GameController : MonoBehaviour
 
 	public Text firstPlayerScore;
 	public Text secondPlayerScore;
+	public Text TimeLimitText;
 
 	public Text CongratulationMessage;
+	public float MessageWaitTime;
+	public float GameTimeInSec;
 
 	public bool firstPlayerWon;
 
@@ -17,44 +21,92 @@ public class GameController : MonoBehaviour
 	private int firstPlayerScoreCounter;
 	private int secondPlayerScoreCounter;
 
+	private float counter;
+
 	void Start ()
 	{
 		aSource = GetComponent<AudioSource> ();
-		firstPlayerWon = false;
+		firstPlayerScoreCounter = 0;
+		secondPlayerScoreCounter = 0;
+
+		StartCoroutine (TimeLimit (GameTimeInSec));
+	}
+
+	private IEnumerator TimeLimit(float GameTime) {
+		counter = GameTimeInSec;
+		while (counter-- > 0) {
+			yield return new WaitForSecondsRealtime (1.0f);
+			TimeLimitText.text = counter.ToString();
+		}
+
+		if (counter <= 0) {
+			if (firstPlayerScoreCounter > secondPlayerScoreCounter) {
+				CongratulatePlayer (1);
+			} else if (firstPlayerScoreCounter < secondPlayerScoreCounter) {
+				CongratulatePlayer (2);
+			}
+
+			GameObject ball = GameObject.FindGameObjectWithTag ("Ball");
+			Destroy (ball);
+			Instantiate (ballTemplate);
+
+			this.Start ();
+			firstPlayerScore.text = firstPlayerScoreCounter.ToString ();
+			secondPlayerScore.text = secondPlayerScoreCounter.ToString ();
+		}
+	}
+
+	private IEnumerator hideMessage (float WaitTime)
+	{
+		yield return new WaitForSecondsRealtime (WaitTime);
+		CongratulationMessage.enabled = false;
+	}
+
+	private void CongratulatePlayer(int player) {
+		Color col;
+
+		if(player == 1)
+			col = new Color (0.0f, 255f, 0.0f);
+		else
+			col = new Color (0.0f, 0.0f, 255f);
+
+		CongratulationMessage.enabled = true;
+		CongratulationMessage.color = col;
+		CongratulationMessage.text = "Player " + player + "\n victory!";
+
+		StartCoroutine (hideMessage (MessageWaitTime));
+
+		firstPlayerScoreCounter = 0;
+		secondPlayerScoreCounter = 0;
 	}
 
 	void OnTriggerExit (Collider other)
 	{
-		GameObject gameObj = other.gameObject;
+		if (other.gameObject.CompareTag ("Ball")) {
+			
+			GameObject ball = other.gameObject;
 
-		if (gameObj.CompareTag ("Ball")) {
-
-			if (gameObj.transform.position.z < transform.position.z) {
-				if(++firstPlayerScoreCounter > 1)
-					CongratulationMessage.text = "Player 1 \n victory!";
+			if (ball.transform.position.z < transform.position.z) {
+				if (++firstPlayerScoreCounter > 1) {
+					CongratulatePlayer (1);
+					this.Start ();
+				}
 				firstPlayerWon = true;
 			} else {
-				if(++secondPlayerScoreCounter > 1)
-					CongratulationMessage.text = "Player 2 \n victory!";
+				if (++secondPlayerScoreCounter > 1) {
+					CongratulatePlayer (2);
+					this.Start ();
+				}
 				firstPlayerWon = false;
-			}
-
-			if (firstPlayerScoreCounter > 1 || secondPlayerScoreCounter > 1) {
-				CongratulationMessage.enabled = true;
-				firstPlayerScoreCounter = 0;
-				secondPlayerScoreCounter = 0;
-			} else {
-				CongratulationMessage.enabled = false;
 			}
 
 			firstPlayerScore.text = firstPlayerScoreCounter.ToString ();
 			secondPlayerScore.text = secondPlayerScoreCounter.ToString ();
 
+			aSource.Play ();
 		}
-			
-		aSource.Play ();
 
-		Destroy (gameObj);
+		Destroy (other.gameObject);
 		Instantiate (ballTemplate);
 	}
 }
