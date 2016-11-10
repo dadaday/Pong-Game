@@ -767,7 +767,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7900e96038075d146bf92bb10c2f5186, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.8
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1206,9 +1206,28 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 56acfc00f90c4ea4b9aabc84d253733a, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000012767742880, guid: 4b97cb77d5b011a44b831b3f4a411e79, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4b97cb77d5b011a44b831b3f4a411e79, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2021595502 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000010457226406, guid: 4b97cb77d5b011a44b831b3f4a411e79,
+    type: 2}
+  m_PrefabInternal: {fileID: 1992091455}
+--- !u!114 &2021595503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2021595502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d3a1db1d1cafc547bdcfee5784cf04d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceScale: 400
+  ForceToBallScale: 400
 --- !u!1 &2064577836
 GameObject:
   m_ObjectHideFlags: 0

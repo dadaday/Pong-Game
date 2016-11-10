@@ -5,6 +5,7 @@ public class BallScript : MonoBehaviour {
 
 	public float forceScale = 500.0f;
 	public float InitialAngle;
+	public float ballDelayTime = 1.0f;
 
 	public AudioClip WallSound;
 	public AudioClip PaddleSound;
@@ -25,11 +26,15 @@ public class BallScript : MonoBehaviour {
 		}
 
 		aSource = GetComponent<AudioSource> ();
-		
 		ball = GetComponent<Rigidbody> ();
 
-		Vector3 force = Quaternion.Euler(0.0f, InitialAngle, 0.0f) * Vector3.forward *  forceScale;
+		StartCoroutine(BallWait());
+	}
 
+	private IEnumerator BallWait() {
+		yield return new WaitForSecondsRealtime (ballDelayTime);
+
+		Vector3 force = Quaternion.Euler(0.0f, InitialAngle, 0.0f) * Vector3.forward *  forceScale;
 		ball.AddForce (force);
 	}
 

@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
 	private int secondPlayerScoreCounter;
 
 	private float counter;
-	private const int MAXSCORE = 1;
+	private const int MAXSCORE = 10;
 
 	void Start ()
 	{

@@ -234,8 +234,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceScale: 700
   InitialAngle: 0
+  ballDelayTime: 1
   WallSound: {fileID: 8300000, guid: f9af565db0767c64c824456459351704, type: 3}
   PaddleSound: {fileID: 8300000, guid: 24670b9e195028c47b92b06aa9a3c654, type: 3}
+  ball: {fileID: 0}
 --- !u!135 &135000011627414998
 SphereCollider:
   m_ObjectHideFlags: 1
